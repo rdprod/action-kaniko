@@ -76,6 +76,12 @@ else
     if [ -n "$IMAGE_LATEST" ]; then
         export DESTINATION="$DESTINATION --destination $IMAGE_LATEST"
     fi
+
+    if [ -n "$INPUT_ALTERNATIVE_TAGS" ]; then
+        for alt in $INPUT_ALTERNATIVE_TAGS; do
+           export DESTINATION="$DESTINATION --destination ${REGISTRY}/${REPOSITORY}:${alt}"
+        done
+    fi
 fi
 
 export ARGS="$CACHE $CONTEXT $DOCKERFILE $TARGET $DIGEST $DESTINATION $INPUT_EXTRA_ARGS"

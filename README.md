@@ -42,24 +42,25 @@ the most used values. So, technically there is a single required argument
 
 ## Optional Arguments
 
-| variable              | description                                                     | required | default         |
-|-----------------------|-----------------------------------------------------------------|----------|-----------------|
-| registry              | Docker registry where the image will be pushed                  | false    | docker.io       |
-| username              | Username used for authentication to the Docker registry         | false    | $GITHUB_ACTOR   |
-| password              | Password used for authentication to the Docker registry         | false    |                 |
-| tag                   | Image tag                                                       | false    | latest          |
-| cache                 | Enables build cache                                             | false    | false           |
-| cache_ttl             | How long the cache should be considered valid                   | false    |                 |
-| cache_registry        | Docker registry meant to be used as cache                       | false    |                 |
-| cache_directory       | Filesystem path meant to be used as cache                       | false    |                 |
-| build_file            | Dockerfile filename                                             | false    | Dockerfile      |
-| extra_args            | Additional arguments to be passed to the kaniko executor        | false    |                 |
-| strip_tag_prefix      | Prefix to be stripped from the tag                              | false    |                 |
-| skip_unchanged_digest | Avoids pushing the image if the build generated the same digest | false    |                 |
-| path                  | Path to the build context. Defaults to `.`                      | false    | .               |
-| tag_with_latest       | Tags the built image with additional latest tag                 | false    |                 |
-| target                | Sets the target stage to build                                  | false    |                 |
-| debug                 | Enables trace for entrypoint.sh                                 | false    |                 |
+| variable              | description                                                     | required | default       |
+|-----------------------|-----------------------------------------------------------------|----------|---------------|
+| registry              | Docker registry where the image will be pushed                  | false    | docker.io     |
+| username              | Username used for authentication to the Docker registry         | false    | $GITHUB_ACTOR |
+| password              | Password used for authentication to the Docker registry         | false    |               |
+| tag                   | Image tag                                                       | false    | latest        |
+| alternative_tags      | Additional image tags                                           | false    |               |
+| cache                 | Enables build cache                                             | false    | false         |
+| cache_ttl             | How long the cache should be considered valid                   | false    |               |
+| cache_registry        | Docker registry meant to be used as cache                       | false    |               |
+| cache_directory       | Filesystem path meant to be used as cache                       | false    |               |
+| build_file            | Dockerfile filename                                             | false    | Dockerfile    |
+| extra_args            | Additional arguments to be passed to the kaniko executor        | false    |               |
+| strip_tag_prefix      | Prefix to be stripped from the tag                              | false    |               |
+| skip_unchanged_digest | Avoids pushing the image if the build generated the same digest | false    |               |
+| path                  | Path to the build context. Defaults to `.`                      | false    | .             |
+| tag_with_latest       | Tags the built image with additional latest tag                 | false    |               |
+| target                | Sets the target stage to build                                  | false    |               |
+| debug                 | Enables trace for entrypoint.sh                                 | false    |               |
 
 **Here is where it gets specific, as the optional arguments become required depending on the registry targeted**
 
